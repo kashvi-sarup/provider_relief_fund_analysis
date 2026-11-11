@@ -1,0 +1,59 @@
+---
+title: "Final Project - Provider Relief Fund Analysis"
+author: "Kashvi Sarup"
+output: 
+  html_document:
+    toc: yes
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE)
+
+library(dplyr)
+library(ggplot2)
+library(gtsummary)
+
+knitr::read_chunk("code/make_table.R")
+knitr::read_chunk("code/make_figure.R")
+```
+
+## Introduction
+
+During the COVID-19 pandemic, Congress created the Provider Relief Fund through the CARES act to support healthcare providers. For this analysis, I am using the Provider Relief Fund COVID-19 High Impact Payments dataset published on data.cdc.gov by the Health Resources and Services Administration (HRSA). Multiple providers and health systems received High Impact Provider Relief Fund (HIPRF) payments, distributed in different rounds of funding. This dataset provides information on those systems that received HIPRF payments, sorted by region and rounds of funding. 
+
+The objectives of this analysis are to:
+
+1. Summarize the amount of Provider Relief Fund payments received by health systems
+2. Examine how funding was distributed across states
+3. Identify health systems that received the largest total payments
+
+## Load Data
+
+```{r load data}
+prf_data <- read.csv("data/provider_relief_funds.csv")
+str(prf_data)
+prf_data <- prf_data |>
+  mutate(
+    X1st.Round.Payment = as.numeric(gsub("[\\$,]", "", X1st.Round.Payment)),
+    X2nd.Round.Payment = as.numeric(gsub("[\\$,]", "", X2nd.Round.Payment))
+  )
+```
+
+## Data Analysis - Top Recipients
+
+
+```{r make-table}
+```
+
+The table displays the ten hospitals or health systems that received the largest total Provider Relief Fund High-Impact payments, combining first- and second-round payments. It also shows each recipient’s city and state
+
+## Data Analysis - Payments by State
+
+```{r make-figure}
+```
+
+The figure shows the ten states that received the largest total amount of payments. This provides a geographic view of how relief funding was distributed.
