@@ -2,8 +2,8 @@
 
 ## Project Overview
 
-This project analyzes COVID-19 Provider Relief Fund High-Impact Payments distributed to hospitals and health systems. The report examines funding distribution across recipients 
-and states using publicly available data from the Health Resources and Services Administration (HRSA), 
+This project analyzes COVID-19 Provider Relief Fund High-Impact Payments distributed to hospitals and health systems. The report examines how funding was 
+distributed across recipients and states using publicly available data from the Health Resources and Services Administration (HRSA), 
 
 The report focuses on:
 1. Summarizing Provider Relief Fund payments to healthcare organizations.
@@ -12,12 +12,12 @@ The report focuses on:
 
 ## Repository Structure
 
-- `data/provider_relief_funds.csv`: Original dataset used for the analysis
-- `code/make_table.R`: Code for generating the table of the top 10 recipients
-- `code/make_figure.R`: Code for generating the figure showing the top 10 states by total payments
-- `Final Project Report.Rmd`: Main R Markdown report containing all elements
-- `Makefile`: Instructions for generating the HTML report
-- `output/final_report.html`: Final HTML report
+- 'data/provider_relief_funds.csv': Original dataset used for the analysis
+- 'code/make_table.R': Code for generating the table of the top 10 recipients
+- 'code/make_figure.R': Code for generating the figure showing the top 10 states by total payments
+- 'Final Project Report.Rmd': Main R Markdown report containing all elements
+- 'Makefile': Instructions for generating the HTML report
+- 'output/final_report.html: Final HTML report
 
 ## How to Generate the Report
 
@@ -25,15 +25,21 @@ To reproduce the report:
 
 1. Download or clone this repository.
 2. Open the project directory in RStudio.
-3. Ensure the required R packages are installed: `dplyr`, `ggplot2`, `gtsummary`, `knitr`, and `rmarkdown`.
+3. Ensure the required R packages are installed: 'dplyr', 'ggplot2', 'gtsummary', 'knitr', and 'rmarkdown'. 
 4. Open the Terminal and run:
     make report
-The report will be generated as `output/final_report.html`.
+The report will be generated as 'output/final_report.html'.
 
 ## Tables and Figures
 
-**Required Table:** `code/make_table.R` contains the code needed to generate the table showing the top 10 recipients
-**Required Figure:** `code/make_figure.R` containts the code needed to generate the figure showing the top 10 states
+**Required Table:** 'code/make_table.R' contains the code needed to generate the table showing the top 10 recipients
+**Required Figure:** 'code/make_figure.R' containts the code needed to generate the figure showing the top 10 states
 
 ## Data Source
 Provider Relief Fund COVID-19 High Impact Payments dataset, published by HRSA and available through data.cdc.gov.
+
+## Package Management with renv
+
+The project uses 'renv' to keep a track of the R packages and versions needed to consistently produce the analysis across different environments. 
+After cloning the repository, run the following command in the Terminal: make install
+This restores the package versions recorded in `renv.lock`. Once the packages are installed, generate the final report using: make report
